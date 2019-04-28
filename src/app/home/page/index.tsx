@@ -12,7 +12,10 @@ const Home = (props:any) => {
     const add = props.add
     return (
         <div className="App">
-          <header className="App-header">
+          <h1>
+            Hello World
+          </h1>
+          {/* <header className="App-header">
             <h1>
               {props.post}
             </h1>
@@ -29,7 +32,7 @@ const Home = (props:any) => {
             >
               Learn React
             </a>
-          </header>
+          </header> */}
         </div>
     );
 }

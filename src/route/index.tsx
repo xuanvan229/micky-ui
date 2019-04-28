@@ -3,38 +3,22 @@ import { Switch, Route } from 'react-router'
 import {BrowserRouter, Redirect} from 'react-router-dom';
 import Home from '../app/home/page'
 import LoginConnected from '../app/login/page'
+import Note from '../app/note/page'
 import {Loading}  from '../components/Loading'
 import { connect } from 'react-redux';
 import loading from '../assets/images/others/loading.gif'
 import axios from 'axios';
 import {sendRequestAuth} from '../redux/actions'
+import Nav from '../components/Nav'
+import { withRouter } from "react-router";
 
 
 
 
-const RenderComponent = (props:any) => {
-  console.log("propsssss", props.checkAuth.isLogin)
-  if(!props.checkAuth.isSend) {
-    return (
-      props.checkAuth.isLogin === true
-          ? <Component/>
-          : <Redirect to='/login' />
-    );
-  }
-  return (
-    <h1>Loading</h1>
-  )
-  
-}
 const mapStateToPropsRender = (state:any) => {
   const { checkAuth } = state
   return { checkAuth }
 }
-
-
-const RenderComponentConnected = connect(mapStateToPropsRender)(RenderComponent)
-
-
 
 const PrivateRoute = (props:any) =>{
   if(props.checkAuth.isSend) {
@@ -52,7 +36,8 @@ const PrivateRoute = (props:any) =>{
         )
     }
   }
-} 
+}
+
 const PrivateRouteConnected = connect(mapStateToPropsRender, {sendRequestAuth})(PrivateRoute)
 
 export const PostList =(props:any) => {
@@ -78,7 +63,6 @@ export const PostList =(props:any) => {
 }
 
 const Post = (props:any) => {
-  // console.log(props.page.isFetching)
   return (
     <div>
       Hello Post
@@ -95,24 +79,34 @@ const mapStateToProps = (state:any) => {
 
 const PostConnected = connect(mapStateToProps)(Post);;
 
-
-const Login = () => {
+const RootApp = () => {
   return (
     <div>
-      Hello Login
+      <BrowserRouter>
+        <Nav></Nav>
+        <Switch>
+          <div className="app">
+            <Route exact path="/" component={Home}/>  
+            <Route path="/post" component={PostConnected}/>
+            <Route path="/note" component={Note}/>
+          </div>
+
+        </Switch>
+      </BrowserRouter>
     </div>
   )
 }
 
-const RootApp = () => {
+const RootAppRouter = withRouter(RootApp) 
+
+const Root = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <PrivateRouteConnected exact path="/" component={Home}/>  
-        <Route path="/login" component={LoginConnected}/>
-        <PrivateRouteConnected path="/post" component={PostConnected}/>
+        <Route exact path="/login" component={LoginConnected}/>
+        <PrivateRouteConnected path="/" component={RootAppRouter}/>
       </Switch>
     </BrowserRouter>
   )
 }
-export default RootApp
+export default Root

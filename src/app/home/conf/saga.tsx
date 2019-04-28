@@ -5,7 +5,10 @@ import * as actions from './action'
 
 export function fetchPostsApi() {
   return fetch(`https://www.reddit.com/r/reactjs.json`)
-    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      return response.json()
+    })
     .then(json => json.data.children.map((child:any) => child.data))
 }
 

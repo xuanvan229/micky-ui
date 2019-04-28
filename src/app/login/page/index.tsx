@@ -16,12 +16,10 @@ const Login = (props:any) => {
     });
     props.sendLogin()
   }
-  // console.log("loginState=>", props)
   const { getFieldDecorator } = props.form;
   if(props.loginState.isLogin) {
     props.sendRequestAuth()
-    props.history.push('/post')
-    // router.push('/item')
+    props.history.push('/')
   }
   return (
     <div className = "login">

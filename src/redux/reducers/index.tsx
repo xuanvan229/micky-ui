@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import {page} from '../../app/home/conf/reducer'
 import {loginState} from '../../app/login/conf/reducer'
+import {noteState, itemNote} from '../../app/note/conf/reducer'
 
 const post =  (state = 0, action:any) => {
   switch (action.type) {
@@ -15,7 +16,7 @@ const checkAuth = (state = {isSend: false, isLogin: false}, action:any) => {
   switch (action.type) {
     case "SEND_REQUEST_AUTH":
       return {...state, isSend: true}
-      case "RECEIVE_REQUEST_AUTH":
+    case "RECEIVE_REQUEST_AUTH":
       return {...state, isSend: false, isLogin: action.value}
     default:
       return state
@@ -25,6 +26,8 @@ const checkAuth = (state = {isSend: false, isLogin: false}, action:any) => {
 const rootReducer = combineReducers({
   post,
   loginState,
+  noteState,
+  itemNote,
   checkAuth,
   page
 })
