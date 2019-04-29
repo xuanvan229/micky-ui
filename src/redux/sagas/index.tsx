@@ -1,7 +1,7 @@
 import { take, put, call, fork, select, all } from 'redux-saga/effects'
 import {startup} from '../../app/home/conf/saga'
 import {submitLogin} from '../../app/login/conf/saga'
-import {fetchNote} from '../../app/note/conf/saga'
+import {fetchAllNote,fetchNote} from '../../app/note/conf/saga'
 
 import axios from 'axios';
 import {SEND_REQUEST_AUTH, receiveRequestAuth, sendRequestAuth} from '../actions'
@@ -49,6 +49,7 @@ export default function* root() {
     fork(startAuth),
     fork(submitAuth),
     fork(submitLogin),
+    fork(fetchAllNote),
     fork(fetchNote),
   ])
 }

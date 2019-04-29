@@ -25,7 +25,7 @@ const defaultItemNote:any = {
   data: {}
 }
 
-export const itemNote = (state:any = defaultNote, action:any) => {
+export const itemNote = (state:any = defaultItemNote, action:any) => {
   switch(action.type) {
     case FETCH_NOTE : {
       const result =  {...state, isFetching:true}

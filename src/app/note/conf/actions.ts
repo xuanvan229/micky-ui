@@ -13,15 +13,16 @@ export const receiveAllNote = (value:any) => {
   }
 }
 
-export const fetchNote = () => {
+export const fetchNote = (id:number) => {
   return {
-    type: FETCH_ALL_NOTE
+    type: FETCH_NOTE,
+    id
   }
 }
 
 export const receiveNote = (value:any) => {
   return {
-    type: RECEIVE_ALL_NOTE,
+    type: RECEIVE_NOTE,
     value
   }
 }

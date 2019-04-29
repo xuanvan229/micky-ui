@@ -84,14 +84,15 @@ const RootApp = () => {
     <div>
       <BrowserRouter>
         <Nav></Nav>
+        <div className="app">
         <Switch>
-          <div className="app">
+          <>
             <Route exact path="/" component={Home}/>  
             <Route path="/post" component={PostConnected}/>
             <Route path="/note" component={Note}/>
-          </div>
-
+          </>
         </Switch>
+        </div>
       </BrowserRouter>
     </div>
   )
