@@ -1,0 +1,9 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+.ant-menu {
+  background: $text-color;
+  a {
+    color: $light-color !important;
+  }
+}
