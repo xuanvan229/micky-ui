@@ -1,15 +1,14 @@
 import React, {useEffect} from 'react'
-import { Row, Col, Table, Card } from 'antd';
+import { Row, Col, Table, Button } from 'antd';
 import {Link} from 'react-router-dom';
 import {fetchAllNote, fetchNote} from '../conf/actions'
 import ViewNote from '../com/View';
-import NoteEdit from '../com/Edit';
-
+import NoteEdit from '../com/New';
 import { connect } from 'react-redux';
 import {BrowserRouter, Redirect} from 'react-router-dom';
 import { Switch, Route } from 'react-router'
 import moment from 'moment'
-import './index.css'
+
 const columns = [{
   title: 'Title',
   dataIndex: 'title',
@@ -37,6 +36,11 @@ const Note = (props:any) => {
        <BrowserRouter>
         <Row className="panel">
             <Col span={12} className="right-line panel">
+                <div className="flex-right m-b-10">
+                  <Link to={`${props.match.path}/edit`}>
+                    <Button icon="edit" className="btn-success" >New</Button>
+                  </Link>
+                </div>
                 <Table columns={columns} dataSource={noteState.data} className={"mk-table"} pagination={{ pageSize: 15 }}/>
             </Col>
             <Col span={12} className="panel">

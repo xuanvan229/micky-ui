@@ -14,8 +14,9 @@ export function* fetchAllNote() {
 export function* fetchNote() {
   while(true) {
     const action = yield take(actionsType.FETCH_NOTE)
-    console.log("the action", action)
     const {data,status} = yield call(fetch, "GET", ['obj', 'note', action.id])
     yield put(actions.receiveNote(data))
   }
 }
+
+

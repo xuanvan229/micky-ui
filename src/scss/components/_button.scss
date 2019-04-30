@@ -1,3 +1,17 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
+
+.btn-success {
+  color: $light-color;
+  background: $success-color;
+  border: $success-color;
+
+  @include on-event {
+    color: $light-color;
+    background: $success-color;
+    border: $success-color;
+    text-decoration: underline;
+  }
+
+}

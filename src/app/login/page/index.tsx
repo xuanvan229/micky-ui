@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import './style.scss';
 import {changeUsername, changePassword, sendLogin} from '../conf/actions'
 import {sendRequestAuth} from '../../../redux/actions'
+
 const Login = (props:any) => {
   const handleSubmit = (e:any) => {
     e.preventDefault();
@@ -17,13 +18,14 @@ const Login = (props:any) => {
     props.sendLogin()
   }
   const { getFieldDecorator } = props.form;
+  
   if(props.loginState.isLogin) {
     props.sendRequestAuth()
     props.history.push('/')
   }
   return (
     <div className = "login">
-      <Row  justify="center" align="middle" className="login-row"  type="flex">
+      <Row justify="center" align="middle" className="login-row"  type="flex">
         <Col className="gutter-row" span={6} xs={12} sm={12} lg={6}>
           <Form onSubmit={handleSubmit} className="login-form">
             <Form.Item>

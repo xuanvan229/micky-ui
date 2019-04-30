@@ -1,4 +1,4 @@
-import {FETCH_ALL_NOTE, RECEIVE_ALL_NOTE, FETCH_NOTE, RECEIVE_NOTE} from './actionsType'
+import {FETCH_ALL_NOTE, RECEIVE_ALL_NOTE, FETCH_NOTE, RECEIVE_NOTE, CHANGE_TITLE, CHANGE_CONTENT} from './actionsType'
 
 export const fetchAllNote = () => {
   return {
@@ -23,6 +23,22 @@ export const fetchNote = (id:number) => {
 export const receiveNote = (value:any) => {
   return {
     type: RECEIVE_NOTE,
+    value
+  }
+}
+
+
+
+export const changeTitle = (value:string) => {
+  return {
+    type: CHANGE_TITLE,
+    value
+  }
+}
+
+export const changeContent = (value:string) => {
+  return {
+    type: CHANGE_CONTENT,
     value
   }
 }
