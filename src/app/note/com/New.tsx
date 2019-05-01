@@ -3,8 +3,9 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import {Row, Col, Form, Input, Button} from 'antd';
 import {connect} from 'react-redux';
-import {changeTitle, changeContent} from '../conf/actions'
+import {changeTitle, changeContent, submitNote} from '../conf/actions'
 const NoteEdit = (props:any) => {
+  const {submitNote} = props
   const {getFieldDecorator} = props.form
   return (
     <div>
@@ -33,7 +34,7 @@ const NoteEdit = (props:any) => {
             </div>
           </div>
           <div className="flex-space-between m-t-20">
-            <Button type="primary">Submit</Button>
+            <Button type="primary" onClick={submitNote}>Submit</Button>
             <Button type="danger">Dismiss</Button>
           </div>
         </Col>
@@ -68,4 +69,4 @@ const WrappedNormalLoginForm = Form.create({
    return {newNote}
  }
 
-export default connect(mapStatetoProps,{changeTitle, changeContent})(WrappedNormalLoginForm);
+export default connect(mapStatetoProps,{changeTitle, changeContent, submitNote})(WrappedNormalLoginForm);

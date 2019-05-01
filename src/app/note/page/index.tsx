@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { Row, Col, Table, Button } from 'antd';
 import {Link} from 'react-router-dom';
-import {fetchAllNote, fetchNote} from '../conf/actions'
+import {fetchAllNote, submitNote} from '../conf/actions'
 import ViewNote from '../com/View';
 import NoteEdit from '../com/New';
 import { connect } from 'react-redux';
@@ -30,7 +30,7 @@ const Note = (props:any) => {
     const {fetchAllNote} = props
     fetchAllNote()
   }, [])
-  const {noteState} = props
+  const {allnoteState} = props
   return (
     <div>
        <BrowserRouter>
@@ -41,7 +41,7 @@ const Note = (props:any) => {
                     <Button icon="edit" className="btn-success" >New</Button>
                   </Link>
                 </div>
-                <Table columns={columns} dataSource={noteState.data} className={"mk-table"} pagination={{ pageSize: 15 }}/>
+                <Table columns={columns} dataSource={allnoteState.data} className={"mk-table"} pagination={{ pageSize: 15 }}/>
             </Col>
             <Col span={12} className="panel">
                 <Switch>
@@ -56,8 +56,8 @@ const Note = (props:any) => {
 }
 
 const mapStateToProps = (state:any) => {
-  const {noteState} = state
-  return {noteState}
+  const {allnoteState} = state
+  return {allnoteState}
 }
 
 

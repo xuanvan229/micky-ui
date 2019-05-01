@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import {page} from '../../app/home/conf/reducer'
 import {loginState} from '../../app/login/conf/reducer'
-import {noteState, itemNote, newNote} from '../../app/note/conf/reducer'
+import {allnoteState, itemNote, newNote} from '../../app/note/conf/reducer'
 
 const post =  (state = 0, action:any) => {
   switch (action.type) {
@@ -26,7 +26,7 @@ const checkAuth = (state = {isSend: false, isLogin: false}, action:any) => {
 const rootReducer = combineReducers({
   post,
   loginState,
-  noteState,
+  allnoteState,
   newNote,
   itemNote,
   checkAuth,
