@@ -27,8 +27,6 @@ export const receiveNote = (value:any) => {
   }
 }
 
-
-
 export const changeTitle = (value:string) => {
   return {
     type: types.CHANGE_TITLE,

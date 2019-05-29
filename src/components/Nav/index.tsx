@@ -22,6 +22,9 @@ const Nav = (props:any) => {
         <Menu.Item key="/note">
           <Link to="/note">Note</Link>
         </Menu.Item>
+        <Menu.Item key="/en">
+          <Link to="/en">English</Link>
+        </Menu.Item>
       </Menu>
   )
 }

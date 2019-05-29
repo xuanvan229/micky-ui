@@ -2,6 +2,7 @@ import React, { Component, useEffect } from 'react';
 import { Switch, Route } from 'react-router'
 import {BrowserRouter, Redirect} from 'react-router-dom';
 import Home from '../app/home/page'
+import English from '../app/english/page';
 import LoginConnected from '../app/login/page'
 import Note from '../app/note/page'
 import {Loading}  from '../components/Loading'
@@ -90,6 +91,7 @@ const RootApp = () => {
             <Route exact path="/" component={Home}/>  
             <Route path="/post" component={PostConnected}/>
             <Route path="/note" component={Note}/>
+            <Route path="/en" component={English}/>
           </>
         </Switch>
         </div>

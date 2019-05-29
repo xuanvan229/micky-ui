@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Form, Icon, Input, Button, Checkbox, Row, Col
+  Form, Icon, Input, Button, Checkbox, Row, Col, Menu
 } from 'antd';
 import { connect } from 'react-redux';
 import './style.scss';
